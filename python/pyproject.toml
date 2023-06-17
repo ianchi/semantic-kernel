@@ -34,6 +34,9 @@ chromadb = "^0.3.23"
 [tool.poetry.group.weaviate.dependencies]
 weaviate-client = "^3.18.0"
 
+[tool.poetry.group.azure_credential.dependencies]
+azure-identity = "^1.13"
+
 [tool.isort]
 profile = "black"
 
