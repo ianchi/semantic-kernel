@@ -2,7 +2,7 @@
 
 
 from logging import Logger
-from typing import Optional, Union, List, Tuple, TYPE_CHECKING
+from typing import TYPE_CHECKING, List, Optional, Tuple, Union
 
 from semantic_kernel.connectors.ai.chat_request_settings import ChatRequestSettings
 from semantic_kernel.connectors.ai.open_ai.services.azure_credentials_mixin import (
@@ -28,7 +28,7 @@ class AzureChatCompletion(OpenAIChatCompletion, AzureCredentialMixin):
         api_key: Optional[str] = None,
         api_version: str = "2023-03-15-preview",
         logger: Optional[Logger] = None,
-        ad_auth: Union[bool, str, "azure.core.credentials.TokenCredential"] = False,
+        ad_auth: Union[bool, str, "TokenCredential"] = False,
     ) -> None:
         """
         Initialize an AzureChatCompletion service.

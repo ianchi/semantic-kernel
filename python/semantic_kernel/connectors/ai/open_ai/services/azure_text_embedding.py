@@ -2,7 +2,7 @@
 
 
 from logging import Logger
-from typing import Optional, Union, List, TYPE_CHECKING
+from typing import TYPE_CHECKING, List, Optional, Union
 
 from numpy import ndarray
 
@@ -29,7 +29,7 @@ class AzureTextEmbedding(OpenAITextEmbedding, AzureCredentialMixin):
         api_key: Optional[str] = None,
         api_version: str = "2022-12-01",
         logger: Optional[Logger] = None,
-        ad_auth: Union[bool, str, "azure.core.credentials.TokenCredential"] = False,
+        ad_auth: Union[bool, str, "TokenCredential"] = False,
     ) -> None:
         """
         Initialize an AzureTextEmbedding service.

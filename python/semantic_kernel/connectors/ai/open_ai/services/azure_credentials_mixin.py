@@ -1,5 +1,5 @@
 import time
-from typing import Union, TYPE_CHECKING
+from typing import TYPE_CHECKING, Union
 
 TOKEN_URL = "https://cognitiveservices.azure.com/.default"
 
@@ -14,7 +14,9 @@ class AzureCredentialMixin:
     _api_token = None
 
     def _init_credentials(
-        self, api_key: str, ad_auth: Union[bool, str, "azure.core.credentials.TokenCredential"]
+        self,
+        api_key: str,
+        ad_auth: Union[bool, str, "TokenCredential"],
     ):
         if isinstance(ad_auth, bool):
             self._credential = None
@@ -26,8 +28,8 @@ class AzureCredentialMixin:
                 raise ValueError("Cannot provide Azure API key when using credential")
 
             try:
-                from azure.identity import DefaultAzureCredential
                 from azure.core.credentials import TokenCredential
+                from azure.identity import DefaultAzureCredential
 
             except (ImportError, ModuleNotFoundError):
                 raise ImportError(
